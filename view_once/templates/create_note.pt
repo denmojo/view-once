@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Note</title>
+	<!-- style -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<style>
+	body {padding: 0 40px;}
+	</style>
+</head>
+<body>
+<h1>Create Note</h1>
+<div tal:condition="exists:message">${message}</div>
+<form action="create_note" method="post">
+	<label for="note">Note:</label><br/>
+	<textarea cols="40" id="note" name="note" rows="5" required ></textarea><br/>
+    <label for="views_max">Number of views:</label><br/>
+    <input type="text" id="views_max"
+           name="views_max" size="5" required value="1" /><br/>
+    <input type="submit" name="form.submitted"
+           value="Create"/>
+</form>
+</body>
+</html>
