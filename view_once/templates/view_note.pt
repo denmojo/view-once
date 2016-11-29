@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create Note</title>
+    <title>View Note</title>
 	<!-- style -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<style>
 	body {padding: 0 40px;}
+	pre {white-space: pre-wrap;}
 	</style>
 </head>
 <body oncopy="return false" oncut="return false" onpaste="return false">
