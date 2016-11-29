@@ -7,17 +7,21 @@
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 	<style>
 	body {padding: 0 40px;}
+	pre {white-space: pre-wrap;}
 	</style>
 </head>
 <body>
 <h1>Create Note</h1>
-<div tal:condition="exists:message">${message}</div>
+<div tal:condition="exists:message">${message}<a href="${new_url}">${new_url}</a><p>(REMEMBER: Clicking this link will use 1 of your ${views_max} views.)</p>
+	<p>Preview:</p>
+	<pre>${note}</pre>
+</div>
 <form action="create_note" method="post">
 	<label for="note">Note:</label><br/>
-	<textarea cols="40" id="note" name="note" rows="5" required ></textarea><br/>
+	<textarea cols="100" id="note" name="note" rows="5" required ></textarea><br/>
     <label for="views_max">Number of views:</label><br/>
     <input type="text" id="views_max"
-           name="views_max" size="5" required value="1" /><br/>
+           name="views_max" size="5" required value="1" /><br/><br/>
     <input type="submit" name="form.submitted"
            value="Create"/>
 </form>

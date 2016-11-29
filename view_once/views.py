@@ -33,6 +33,12 @@ def create_note(request):
         h.update(note)
         hash = h.hexdigest()
     
+        existing_note = DBSession.query(Status).filter(Status.hash_id == hash).first()
+        if existing_note:
+            with transaction.manager:
+                DBSession.delete(existing_note)
+        
+    
         s = Status(
             hash_id = hash
         )
@@ -46,9 +52,10 @@ def create_note(request):
         with transaction.manager:
             DBSession.add(s)
             DBSession.add(n)            
-            message = "Note created. Send visitor to: " + request.application_url + "/notes/view_note?q=" + hash 
+            message = "Note created. Send visitor to: " 
+            new_url = request.application_url + "/notes/view_note?q=" + hash 
             
-        return {'message': message}
+        return {'message': message, 'new_url': new_url, 'views_max': views_max, 'note': note}
             
         raise exc.HTTPSeeOther('/notes/create_note')
         
